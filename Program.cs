@@ -47,20 +47,36 @@ namespace ShoppingList
 
             //Cart calculations (this was fun...)
             Console.WriteLine("Thanks for your purchase, Dennis!\nHere is what you got:\n\n");
+            Console.WriteLine("========================================================");
             double sum = 0;
             int totalItems = 0;
             double maxPrice = 0;
-            double minPrice = 0;
+            double minPrice = 999;
+            string maxItem = "";
+            string minItem = "";
 
             for (int i = 0; i < quantity.Count; i++)
             {
                 //Console.WriteLine($"{quantity.Count}"); //Just for debugging
                 sum = sum + (double)selectionPrice[i] * (int)quantity[i];   //calculate sum
                 totalItems = totalItems + (int)quantity[i];                 //get avg price
-                Console.WriteLine($"{quantity[i]}x\t{userSelection[i]}(s)    \t{(double)selectionPrice[i] * (int)quantity[i]:C02}");
+
+                if (maxPrice < (double)selectionPrice[i])
+                {
+                    maxPrice = (double)selectionPrice[i];
+                    maxItem = (string)userSelection[i];
+                }
+                if (minPrice > (double)selectionPrice[i])
+                {
+                    minPrice = (double)selectionPrice[i];
+                    minItem = (string)userSelection[i];
+                }
+                Console.WriteLine($"{quantity[i]}x\t{userSelection[i]}(s)  \t{(double)selectionPrice[i] * (int)quantity[i]:C02}");
             }           
 
-            Console.WriteLine($"Average price per item is {sum/totalItems:C02}");
+            Console.WriteLine($"\nAverage price per item is {sum/totalItems:C02}");
+            Console.WriteLine($"\nMost expensive item ordered was {maxItem} priced at {maxPrice:C02}");
+            Console.WriteLine($"\nLeast expensive item ordered was {minItem} priced at {minPrice:C02}");
 
             /* //FOR DEBUGGING
             foreach (var debugItem in quantity)
