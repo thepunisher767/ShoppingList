@@ -52,7 +52,7 @@ namespace ShoppingList
             double sum = 0;
             int totalItems = 0;
             double maxPrice = 0;
-            double minPrice = 999;
+            double minPrice = 999; //ehhhhh kinda feels cheaty doing it this way, but it works!
             string maxItem = "";
             string minItem = "";
 
@@ -62,12 +62,12 @@ namespace ShoppingList
                 sum = sum + (double)selectionPrice[i] * (int)quantity[i];   //calculate sum
                 totalItems = totalItems + (int)quantity[i];                 //get avg price
 
-                if (maxPrice < (double)selectionPrice[i])
+                if (maxPrice < (double)selectionPrice[i]) //check if current item is more than current max (and update if needed)
                 {
                     maxPrice = (double)selectionPrice[i];
                     maxItem = (string)userSelection[i];
                 }
-                if (minPrice > (double)selectionPrice[i])
+                if (minPrice > (double)selectionPrice[i]) //check if current item is less than min (and update if needed)
                 {
                     minPrice = (double)selectionPrice[i];
                     minItem = (string)userSelection[i];
