@@ -47,6 +47,7 @@ namespace ShoppingList
 
             //Cart calculations (this was fun...)
             Console.WriteLine("Thanks for your purchase, Dennis!\nHere is what you got:\n\n");
+            Console.WriteLine($"Always Sunny Hardware                       Philadelphia");
             Console.WriteLine("========================================================");
             double sum = 0;
             int totalItems = 0;
@@ -72,8 +73,10 @@ namespace ShoppingList
                     minItem = (string)userSelection[i];
                 }
                 Console.WriteLine($"{quantity[i]}x\t{userSelection[i]}(s)  \t{(double)selectionPrice[i] * (int)quantity[i]:C02}");
-            }           
-
+            }
+            
+            Console.WriteLine($"========================================================");
+            Console.WriteLine($"Total cost\t\t{sum:C02}\n");
             Console.WriteLine($"\nAverage price per item is {sum/totalItems:C02}");
             Console.WriteLine($"\nMost expensive item ordered was {maxItem} priced at {maxPrice:C02}");
             Console.WriteLine($"\nLeast expensive item ordered was {minItem} priced at {minPrice:C02}");
